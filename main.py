@@ -1,9 +1,10 @@
 from fastapi import FastAPI, HTTPException, Depends
 from sqlalchemy.orm import Session
 from app.database import get_db
-from app.models import User
+from app.models import User, Base
 from app.schema import UserCreate, UserUpdate
 
+Base.metadata.create_all(bind=engine)
 
 
 app = FastAPI()
